@@ -42,9 +42,8 @@
           <p th:text="'The application external IP and PORT are ' + ${extIpPort}"/>
           <p th:text="'The application port is ' + ${port}"/>		
           
-          <p th:text="'The instance ID is ' + ${vcapApplication != null ? vcapApplication['instance_index']: 'null'}"/>
-          <p th:text="'The instance index is ' + ${vcapApplication != null ? vcapApplication['instance_id']: 'null'}"/>
-          <p th:text="'The instance was started at ' + ${vcapApplication != null ? vcapApplication['started_at']: 'null'}"/>
+          <p th:text="'The instance index is ' + ${vcapApplication != null ? vcapApplication['instance_index']: 'null'}"/>
+          <p th:text="'The instance GUID is ' + ${vcapApplication != null ? vcapApplication['instance_id']: 'null'}"/>
           
           <div th:unless="${#lists.isEmpty(serviceInfos)}">
           	<p>The bound services are :<br /></p>
