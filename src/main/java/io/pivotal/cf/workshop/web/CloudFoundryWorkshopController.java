@@ -49,14 +49,7 @@ public class CloudFoundryWorkshopController {
 	private void addAppInstanceIndex(Model model) throws Exception {
 
 		String instanceIndex = System.getenv("CF_INSTANCE_INDEX");
-
-		if (instanceIndex == null) {
-			logger.info("No CF_INSTANCE_INDEX, going to VCAP_APPLICATION");
-			if (getVCAPMap() != null)
-				instanceIndex = Integer.toString((Integer) getVCAPMap().get("instance_index"));
-		}
-
-		model.addAttribute("instanceIndex", instanceIndex != null ? instanceIndex : "no index environment variable");
+		model.addAttribute("instanceIndex", instanceIndex);
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -94,6 +87,8 @@ public class CloudFoundryWorkshopController {
 		String port = System.getenv("PORT");
 		model.addAttribute("port", port);
 
+		addAppInstanceIndex(model);
+		
 		@SuppressWarnings("rawtypes")
 		Map vcapMap = getVCAPMap();
 
