@@ -1,6 +1,6 @@
 applications:
 - name: boot-app
-  memory: 512M
+  memory: 768M
   instances: 1
   host: boot-app-${random-word}
-  path: ./target/cf-workshop-spring-boot-0.0.3-SNAPSHOT.jar
+  path: ./target/cf-workshop-spring-boot-0.0.4-SNAPSHOT.jar
